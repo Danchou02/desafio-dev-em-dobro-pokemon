@@ -1,0 +1,37 @@
+// Alert("olá!");    aparece olá em uma caixa de alerta
+
+//    - objetivo 1 - quando clicar no botão de troca de tema, adicionar a classe modo-escuro no body pra que os estilos do modo escuro sejam aplicados e mudar a imagem pra lua
+
+//passo 1 - pegar no JS o elemento HTML correspondente ao botão de troca de tema
+const botaoAlterarTema = document.getElementById("botao-alterar-tema"); // pega pelo atribudo class=id
+
+//passo 2 - dar um jeito de pegar no JS o elemento HTML corresponde ao body
+const body = document.querySelector("body"); // consultar um seletor ( classe, tag )
+
+const imagemBotaoTrocaDeTema = document.querySelector(".imagem-botao")
+
+//passo 3 - dar um jeito de identificar o clique do usuário no botão de troca de tema
+botaoAlterarTema.addEventListener("click", () => {
+
+    const modoEscuroEstaAtivo = body.classList.contains("modo-escuro") //passo 6 - verificar se o body já tem a class modo-escuro
+
+    // body.classList.toggle("modo-escuro") faz o mesmo efeito do add / remove. porém encurta o codigo
+    if (modoEscuroEstaAtivo) {
+        // passo 7 - remover a classe do modo-escuro do body
+        body.classList.remove("modo-escuro");
+
+        // passo 8 - trocar a imagem do botão de alterar tema para sol
+        imagemBotaoTrocaDeTema.setAttribute("src", "./src/imagens/sun.png");
+
+    } else {
+        //passo 4 - adicionar a classe modo-escuro no body
+        body.classList.add("modo-escuro");
+
+        //passo 5 - trocar a imagem do botão de alterar tema pra lua
+
+        imagemBotaoTrocaDeTema.setAttribute("src", "./src/imagens/moon.png");
+    }
+
+});   //adiciona um comando ação ou seja um efeito clicável. sendo adicionado uma arrow function.
+
+
